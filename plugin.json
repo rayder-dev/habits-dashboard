@@ -1,22 +1,50 @@
 {
   "id": "habits-dashboard",
-  "name": "Дашборд привычек",
-  "version": "1.0.2",
+  "name": "Habits Dashboard",
+  "names": {
+    "ru": "Дашборд привычек"
+  },
+  "version": "1.0.3",
   "description": "Статистика сайтов и времени по вашей истории. Всё локально.\nSite and time stats from your history. All local.",
+  "descriptions": {
+    "ru": "Статистика сайтов и времени по вашей истории. Всё считается локально, ничего не уходит из браузера.",
+    "en": "Site and time stats from your browsing history. Everything is computed locally; nothing leaves the browser."
+  },
   "author": "rayder-dev",
-  "permissions": ["history_read", "storage", "ui", "notifications"],
-  "background": { "script": "background.js" },
+  "permissions": [
+    "history_read",
+    "storage",
+    "ui",
+    "notifications"
+  ],
+  "background": {
+    "script": "background.js"
+  },
   "icon": "icon.svg",
   "ui": {
     "page": "page.html",
     "toolbarButton": {
       "icon": "icon.svg",
       "title": "Habits Dashboard",
-      "titles": { "ru": "Дашборд привычек" }
+      "titles": {
+        "ru": "Дашборд привычек"
+      }
     },
     "commands": [
-      { "id": "open", "title": "Habits Dashboard", "titles": { "ru": "Дашборд привычек" } },
-      { "id": "weekly", "title": "Weekly summary", "titles": { "ru": "Итоги недели" } }
+      {
+        "id": "open",
+        "title": "Habits Dashboard",
+        "titles": {
+          "ru": "Дашборд привычек"
+        }
+      },
+      {
+        "id": "weekly",
+        "title": "Weekly summary",
+        "titles": {
+          "ru": "Итоги недели"
+        }
+      }
     ]
   }
 }
