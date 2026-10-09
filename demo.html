@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Habits Dashboard (demo)</title>
+  <title>History Stats (demo)</title>
   <link rel="stylesheet" href="page.css">
   <link rel="stylesheet" href="demo.css">
 </head>
@@ -12,12 +12,11 @@
   <main class="wrap" id="app" aria-busy="true">
     <header class="top">
       <div class="title">
-        <h1 data-i18n="title">Habits Dashboard</h1>
+        <h1 data-i18n="title">History Stats</h1>
         <p class="sub" data-i18n="subtitle">Which sites you open most, and when. Computed locally.</p>
       </div>
       <div class="controls">
         <div class="seg" id="periods" role="group" data-i18n-aria="period"></div>
-        <button type="button" class="btn" id="btn-refresh" data-i18n="refresh">Refresh</button>
         <button type="button" class="btn" id="btn-blur" aria-pressed="false" data-i18n="hide">Hide numbers</button>
         <button type="button" class="btn" id="btn-settings" aria-expanded="false" data-i18n="settings">Settings</button>
       </div>
@@ -38,15 +37,15 @@
         </div>
         <div class="two">
           <div>
-            <h3 data-i18n="site_hours">By hour</h3>
+            <h2 class="minor" data-i18n="site_hours">By hour</h2>
             <div class="chart sens" id="site-hours"></div>
           </div>
           <div>
-            <h3 data-i18n="site_days">By weekday</h3>
+            <h2 class="minor" data-i18n="site_days">By weekday</h2>
             <div class="chart sens" id="site-days"></div>
           </div>
         </div>
-        <h3 data-i18n="site_recent">Recent pages</h3>
+        <h2 class="minor" data-i18n="site_recent">Recent pages</h2>
         <ul class="recent sens" id="site-recent"></ul>
       </section>
 

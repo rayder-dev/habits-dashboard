@@ -1,10 +1,10 @@
 {
   "id": "habits-dashboard",
-  "name": "Habits Dashboard",
+  "name": "History Stats",
   "names": {
-    "ru": "Дашборд привычек"
+    "ru": "Статистика истории"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Статистика сайтов и времени по вашей истории. Всё локально.\nSite and time stats from your history. All local.",
   "descriptions": {
     "ru": "Статистика сайтов и времени по вашей истории. Всё считается локально, ничего не уходит из браузера.",
@@ -25,17 +25,17 @@
     "page": "page.html",
     "toolbarButton": {
       "icon": "icon.svg",
-      "title": "Habits Dashboard",
+      "title": "History Stats",
       "titles": {
-        "ru": "Дашборд привычек"
+        "ru": "Статистика истории"
       }
     },
     "commands": [
       {
         "id": "open",
-        "title": "Habits Dashboard",
+        "title": "History Stats",
         "titles": {
-          "ru": "Дашборд привычек"
+          "ru": "Статистика истории"
         }
       },
       {

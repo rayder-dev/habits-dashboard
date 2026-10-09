@@ -31,6 +31,8 @@
     while (node.firstChild) node.removeChild(node.firstChild);
   }
 
+  var animationsOn = true; // off while the page refreshes itself, so charts do not replay their entrance
+
   function reducedMotion() {
     return !!(root.matchMedia && root.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
@@ -99,7 +101,7 @@
       if (w === last) return;
       last = w;
       hideTip();
-      var animate = fresh && !reducedMotion();
+      var animate = fresh && animationsOn && !reducedMotion();
       fresh = false;
       draw(w, animate);
     };
@@ -330,7 +332,7 @@
     clear(container);
     opts = opts || {};
     var max = items.reduce(function (m, it) { return it.value > m ? it.value : m; }, 0);
-    var animate = !reducedMotion();
+    var animate = animationsOn && !reducedMotion();
     items.forEach(function (it, i) {
       var row = html("div", "hrow" + (opts.selectedKey === it.key ? " selected" : ""));
       if (opts.onClick) {
@@ -365,6 +367,7 @@
     avatar: avatar,
     hideTip: hideTip,
     setTipDisabled: function (v) { tipDisabled = !!v; if (v) hideTip(); },
+    setAnimations: function (on) { animationsOn = !!on; },
     html: html,
     clear: clear,
   };

@@ -15,11 +15,11 @@
 
   var I18N = {
     en: {
-      title: "Habits Dashboard",
+      title: "History Stats",
       subtitle: "Which sites you open most, and when. Computed locally.",
       period: "Period",
       p24h: "24 hours", p7d: "7 days", p30d: "30 days", pall: "All available",
-      refresh: "Refresh", hide: "Hide numbers", show: "Show numbers", settings: "Settings", close: "Close",
+      hide: "Hide numbers", show: "Show numbers", settings: "Settings", close: "Close",
       top_sites: "Top sites", top_hint: "Click a site for details.",
       categories: "Categories", cat_hint: "Built-in domain list; change a site's category in its details or in Settings.",
       by_hour: "Activity by hour of day", by_weekday: "Activity by weekday", heatmap: "Weekday × hour",
@@ -50,11 +50,11 @@
       cat: { social: "Social", video: "Video", work: "Work", news: "News", shopping: "Shopping", other: "Other" },
     },
     ru: {
-      title: "Дашборд привычек",
+      title: "Статистика истории",
       subtitle: "Какие сайты вы открываете чаще всего и в какое время. Всё считается локально.",
       period: "Период",
       p24h: "24 часа", p7d: "7 дней", p30d: "30 дней", pall: "Всё доступное",
-      refresh: "Обновить", hide: "Скрыть цифры", show: "Показать цифры", settings: "Настройки", close: "Закрыть",
+      hide: "Скрыть цифры", show: "Показать цифры", settings: "Настройки", close: "Закрыть",
       top_sites: "Топ сайтов", top_hint: "Нажмите на сайт, чтобы увидеть подробности.",
       categories: "Категории", cat_hint: "Встроенный список доменов; категорию сайта можно менять в его подробностях или в настройках.",
       by_hour: "Активность по часам суток", by_weekday: "Активность по дням недели", heatmap: "День недели × час",
@@ -178,28 +178,65 @@
     box.hidden = false;
   }
 
-  function load(refresh, reuse) {
+  /** What the page shows, without the parts that change on every call (the clock). */
+  function signatureOf(res) {
+    return JSON.stringify([res.stats.cards, res.stats.prev, res.stats.topSites, res.stats.hours, res.stats.heat,
+      res.stats.categories, res.stats.series, res.sample, res.settings]);
+  }
+
+  /**
+   * `silent`: a background refresh. No loading state, no error banner, and the page is only
+   * touched (without the entrance animation) when the numbers actually changed.
+   */
+  function load(refresh, reuse, silent) {
+    if (silent && state.loading) return Promise.resolve();
     var id = ++state.reqId;
-    setBusy(true);
-    $("error").hidden = true;
+    if (!silent) {
+      state.loading = true;
+      setBusy(true);
+      $("error").hidden = true;
+    }
     return Promise.resolve(dp.runtime.sendMessage({ type: "getStats", period: state.period, refresh: !!refresh, reuse: !!reuse, lang: state.lang }))
       .then(function (res) {
         if (id !== state.reqId) return;
         if (!res || !res.ok) throw new Error((res && res.error) || "no answer");
+        var signature = signatureOf(res);
+        var unchanged = silent && signature === state.signature;
         state.data = res;
         state.settings = res.settings;
-        syncBlurFromSettings();
-        render();
+        state.signature = signature;
+        if (!unchanged) {
+          syncBlurFromSettings();
+          C.setAnimations(!silent);
+          render();
+          C.setAnimations(true);
+        }
         // A stored result is only for a fast first paint: history may have changed
         // (or been cleared) since, so recompute right away.
-        if (res.fromCache && !refresh) setTimeout(function () { load(true); }, 0);
+        if (res.fromCache && !refresh) setTimeout(function () { load(true, false, true); }, 0);
       })
       .catch(function (e) {
-        if (id === state.reqId) showError(String((e && e.message) || e));
+        if (id === state.reqId && !silent) showError(String((e && e.message) || e));
       })
       .then(function () {
-        if (id === state.reqId) setBusy(false);
+        if (id === state.reqId && !silent) {
+          state.loading = false;
+          setBusy(false);
+        }
       });
+  }
+
+  // ------------------------------------------------------------- auto refresh
+
+  var AUTO_REFRESH_MS = 30 * 1000;
+
+  /** The page keeps itself current: every 30 s while it is visible, and as soon as it becomes visible again. */
+  function startAutoRefresh() {
+    function tick() {
+      if (!document.hidden) load(true, false, true);
+    }
+    setInterval(tick, AUTO_REFRESH_MS);
+    document.addEventListener("visibilitychange", tick);
   }
 
   function save(patch, reload) {
@@ -454,7 +491,6 @@
   // --------------------------------------------------------------------- init
 
   function wire() {
-    $("btn-refresh").addEventListener("click", function () { load(true); });
     $("btn-blur").addEventListener("click", function () {
       var on = !document.body.classList.contains("blur");
       setBlur(on);
@@ -509,6 +545,7 @@
     var timeout = new Promise(function (resolve) { setTimeout(resolve, 1500); });
     Promise.race([Promise.resolve(dp.ready), timeout]).then(function () {
       applyI18n();
+      startAutoRefresh();
       return load(false);
     });
   }
