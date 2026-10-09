@@ -1,10 +1,10 @@
 {
   "version": 1,
   "files": {
-    "README.md": "69853d7078ccaad707a6196b61ab14e1dbea1dab858fd377f46b132df7477038",
+    "README.md": "5443e6e2fc6869bd800891416b2118780f9986d5816b9cac345271c02bd472dd",
     "aggregate.js": "9a5831e4851d788edb6bdb9b93d6bdfff09176f841aeb2f3238faef330a19008",
-    "background.js": "14f0f259b1995c6cb5b186d463e7a1a3da1cd7cf880bf6ac957d74ffc09df261",
-    "background.src.js": "f2ea292178050880f0a3089aceba8f9ce55ed0c56ee4296b5bb886d366c4d387",
+    "background.js": "17344e25e661c10130899476a5295ea80018875a58ff05b9e6509e0147e51506",
+    "background.src.js": "f28789f2061e72349f5fdbe3713b16b1cb8bb7476d68218f5681e035f84ec4ff",
     "build.js": "b66c67752e63359b4c6ddabfc733b785432035994930411a5a40d745a9c8d690",
     "charts.js": "737851c67f63271d0ba8e5342f6a98591d892cd694d34f8f1ef3df3b259fcf90",
     "demo-shim.js": "d141e90d6835e00be421ce6f6edc2d623f50b3cc5f480ae022db3037e0b7bc71",
@@ -13,8 +13,9 @@
     "icon.svg": "5d7487c542ed84700556c7649495826ba88212d7ee3a9653de4e6d09e9ac42e8",
     "page.css": "f8fa9b59b6745302f37fe2f696ef69017fac853db6d154ef584d6d1883890209",
     "page.html": "ba07df21102771ad99adcaf98e4ad28fac9623e724f07b60dd15133bf06ec688",
-    "page.js": "75a8861f3e836808d0d4e05b41c905ff8fbbb2d560dc999117dbefcfa593990e",
-    "plugin.json": "ecd328f7dda3ca2ab23b26f837c26605ca95b56a1feface5968a86ef2f2d1b82"
+    "page.js": "74c180c46a427add0c53d194a2e734ae8276f5ed22a991dde04882c408226360",
+    "plugin.json": "c59dce784f4b2e69b91215cf1d7754ea61e12c81ef6754d9af24d6e31285186a",
+    "screenshot.jpg": "9e5b9a529515627259b6ae34cdde2a4dc98223488018bf53358740bfc3d760ba"
   },
-  "signature": "G3qQtR/eGFtrOa7Ao1mKY3wJUgeYN5FIUpAc5WK8WMDMZvkbrSkGAMsrBfVb/7Ki6k8kpAa/Kg7XAzVpcZnxDQ=="
+  "signature": "vYngyvve2qb1vA6qhtPY71x8WxE1LXw3ignA0+3KMRjc9fGeTNVB0VxCNm2VlOqbM0uBYr/Y4xW1t7RiszDVAQ=="
 }
