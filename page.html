@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habits Dashboard</title>
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+  <main class="wrap" id="app" aria-busy="true">
+    <header class="top">
+      <div class="title">
+        <h1 data-i18n="title">Habits Dashboard</h1>
+        <p class="sub" data-i18n="subtitle">Which sites you open most, and when. Computed locally.</p>
+      </div>
+      <div class="controls">
+        <div class="seg" id="periods" role="group" data-i18n-aria="period"></div>
+        <button type="button" class="btn" id="btn-refresh" data-i18n="refresh">Refresh</button>
+        <button type="button" class="btn" id="btn-blur" aria-pressed="false" data-i18n="hide">Hide numbers</button>
+        <button type="button" class="btn" id="btn-settings" aria-expanded="false" data-i18n="settings">Settings</button>
+      </div>
+    </header>
+
+    <div class="banner" id="coverage" role="status"></div>
+    <div class="banner error" id="error" role="alert" hidden></div>
+
+    <section class="cards" id="cards" aria-label="Summary"></section>
+
+    <div class="empty" id="empty" hidden></div>
+
+    <div id="content">
+      <section class="panel" id="site-detail" hidden>
+        <div class="panel-head">
+          <div class="site-head" id="site-head"></div>
+          <button type="button" class="btn small" id="btn-close-site" data-i18n="close">Close</button>
+        </div>
+        <div class="two">
+          <div>
+            <h3 data-i18n="site_hours">By hour</h3>
+            <div class="chart sens" id="site-hours"></div>
+          </div>
+          <div>
+            <h3 data-i18n="site_days">By weekday</h3>
+            <div class="chart sens" id="site-days"></div>
+          </div>
+        </div>
+        <h3 data-i18n="site_recent">Recent pages</h3>
+        <ul class="recent sens" id="site-recent"></ul>
+      </section>
+
+      <div class="grid">
+        <section class="panel">
+          <h2 data-i18n="top_sites">Top sites</h2>
+          <p class="hint" data-i18n="top_hint">Click a site for details.</p>
+          <div class="hbars" id="top-sites"></div>
+        </section>
+        <section class="panel">
+          <h2 data-i18n="categories">Categories</h2>
+          <p class="hint" data-i18n="cat_hint">Built-in domain list; change a site's category in its details or in Settings.</p>
+          <div class="hbars" id="categories"></div>
+        </section>
+        <section class="panel">
+          <h2 data-i18n="by_hour">Activity by hour of day</h2>
+          <div class="chart sens" id="hours"></div>
+        </section>
+        <section class="panel">
+          <h2 data-i18n="by_weekday">Activity by weekday</h2>
+          <div class="chart sens" id="weekdays"></div>
+        </section>
+        <section class="panel wide">
+          <h2 data-i18n="heatmap">Weekday &times; hour</h2>
+          <div class="chart sens" id="heatmap"></div>
+        </section>
+        <section class="panel wide">
+          <h2 id="series-title" data-i18n="dynamics">Trend</h2>
+          <div class="chart sens" id="series"></div>
+        </section>
+      </div>
+    </div>
+
+    <section class="panel" id="settings-panel" hidden>
+      <h2 data-i18n="settings">Settings</h2>
+
+      <h3 data-i18n="excluded">Excluded sites</h3>
+      <p class="hint" data-i18n="excluded_hint">Not counted anywhere in the statistics. A domain also covers its subdomains.</p>
+      <form class="row" id="form-exclude" autocomplete="off">
+        <input type="text" id="in-exclude" maxlength="100" data-i18n-ph="exclude_ph" placeholder="example.com">
+        <button type="submit" class="btn" data-i18n="add">Add</button>
+      </form>
+      <ul class="chips" id="excluded-list"></ul>
+
+      <h3 data-i18n="cat_rules">Category rules</h3>
+      <p class="hint" data-i18n="cat_rules_hint">Your own category for a domain overrides the built-in list.</p>
+      <form class="row" id="form-cat" autocomplete="off">
+        <input type="text" id="in-cat-domain" maxlength="100" data-i18n-ph="exclude_ph" placeholder="example.com">
+        <select id="in-cat-id" data-i18n-aria="category"></select>
+        <button type="submit" class="btn" data-i18n="add">Add</button>
+      </form>
+      <ul class="chips" id="cat-rules"></ul>
+
+      <h3 data-i18n="notify">Notifications</h3>
+      <label class="check">
+        <input type="checkbox" id="in-weekly">
+        <span data-i18n="weekly_toggle">Show a weekly summary once a week</span>
+      </label>
+      <p class="hint" data-i18n="weekly_hint">The palette command "Weekly summary" shows it right away.</p>
+    </section>
+
+    <footer class="foot" data-i18n="privacy">All numbers are computed on this device from your browsing history. Nothing is sent anywhere.</footer>
+  </main>
+
+  <script src="drift-page.js"></script>
+  <script src="charts.js"></script>
+  <script src="page.js"></script>
+</body>
+</html>

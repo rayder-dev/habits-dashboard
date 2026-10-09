@@ -1,0 +1,6 @@
+/* demo.html only: the banner that says this is synthetic data. */
+.demo-bar {
+  position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center;
+  padding: 6px 16px; font: 12.5px var(--font-ui); color: var(--on-accent); background: var(--accent);
+}
+.demo-bar a { color: inherit; text-decoration: underline; }

@@ -1,0 +1,22 @@
+{
+  "id": "habits-dashboard",
+  "name": "Дашборд привычек",
+  "version": "1.0.0",
+  "description": "Страница статистики: какие сайты вы открываете чаще всего и в какое время. Всё считается локально по вашей истории, ничего не уходит из браузера. Statistics page: which sites you open most and when. Computed locally from your history; nothing leaves the browser.",
+  "author": "rayder-dev",
+  "permissions": ["history_read", "storage", "ui", "notifications"],
+  "background": { "script": "background.js" },
+  "icon": "icon.svg",
+  "ui": {
+    "page": "page.html",
+    "toolbarButton": {
+      "icon": "icon.svg",
+      "title": "Habits Dashboard",
+      "titles": { "ru": "Дашборд привычек" }
+    },
+    "commands": [
+      { "id": "open", "title": "Habits Dashboard", "titles": { "ru": "Дашборд привычек" } },
+      { "id": "weekly", "title": "Weekly summary", "titles": { "ru": "Итоги недели" } }
+    ]
+  }
+}
