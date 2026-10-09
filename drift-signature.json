@@ -1,21 +1,21 @@
 {
   "version": 1,
   "files": {
-    "README.md": "5443e6e2fc6869bd800891416b2118780f9986d5816b9cac345271c02bd472dd",
+    "README.md": "e5c5c0f02b26868edb336c965e7bd064d00ec55d4c09ce718d38d4283207651c",
     "aggregate.js": "9a5831e4851d788edb6bdb9b93d6bdfff09176f841aeb2f3238faef330a19008",
     "background.js": "17344e25e661c10130899476a5295ea80018875a58ff05b9e6509e0147e51506",
     "background.src.js": "f28789f2061e72349f5fdbe3713b16b1cb8bb7476d68218f5681e035f84ec4ff",
     "build.js": "b66c67752e63359b4c6ddabfc733b785432035994930411a5a40d745a9c8d690",
-    "charts.js": "737851c67f63271d0ba8e5342f6a98591d892cd694d34f8f1ef3df3b259fcf90",
+    "charts.js": "7b1a23f3d3793880769a6c2d0e25485a8d3ea7e31416c49943d37cfcd2f1d07e",
     "demo-shim.js": "d141e90d6835e00be421ce6f6edc2d623f50b3cc5f480ae022db3037e0b7bc71",
     "demo.css": "706e521980bbcd5b59e73d40b38e5ddc0819fd2aefc4d76c1d4a3b1f5fca237e",
-    "demo.html": "5e9ac8193a089ed86da11c8663b8ffb8b8f7d2a49deffab5d804b3ee278191a5",
+    "demo.html": "a24c2fd33ee25cedde2165ef00960e083020d6b191b57f42148a0c1d428e63d1",
     "icon.svg": "5d7487c542ed84700556c7649495826ba88212d7ee3a9653de4e6d09e9ac42e8",
-    "page.css": "f8fa9b59b6745302f37fe2f696ef69017fac853db6d154ef584d6d1883890209",
-    "page.html": "ba07df21102771ad99adcaf98e4ad28fac9623e724f07b60dd15133bf06ec688",
-    "page.js": "74c180c46a427add0c53d194a2e734ae8276f5ed22a991dde04882c408226360",
-    "plugin.json": "04b05dfbef7600b9a7c9663ea853c356650e2c04383405ff77d06d05b363d0ac",
-    "screenshot.jpg": "9e5b9a529515627259b6ae34cdde2a4dc98223488018bf53358740bfc3d760ba"
+    "page.css": "53267be18557bb60f30deb2d5fa9352df5c962e646a947d0b8f9835c69fcb607",
+    "page.html": "dfe1276e122fdb7b6ea3e2907421f1dadc0818dd4e0907d62fdc44a77b173d53",
+    "page.js": "b0e1fbe8d11e7d97c52a81cb2c32dad331ad73cd3ea436852a52ff1291c68e6d",
+    "plugin.json": "7bbcd7349d5fe57e26c9573a6cdb0ff8a54cbc25a493edc0974dc2a206568e23",
+    "screenshot.jpg": "4ae483297568dca023fe06f30fc5b78b399aee9b3b03ba82c6137c558c3a1919"
   },
-  "signature": "jEvYviP9lxXKatXsotFTFXyZiIE9AfWIAPstNztkmimvq76u8AGJJcSOvnv+SHW/cZpW4xbSfJasJ/JO6iexAA=="
+  "signature": "EFWGcSDeo57FQtXmhunhRTSbQLs0MyiC2L11RnViwjniLHR1ooJsSFBBG9kXbGl70nXKSjaCMqTQd7a4Zbp1BQ=="
 }
